@@ -122,7 +122,6 @@ model FieldImage {
   id      String  @id @default(cuid())
   fieldId String
   url     String
-  order   Int     @default(0)
   caption String?
 
   createdAt DateTime @default(now())

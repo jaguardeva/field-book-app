@@ -25,7 +25,7 @@ export function AvatarDropdown({ imageUrl, name }: AvatarDropdownProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full">
-          <Avatar>
+          <Avatar size="lg">
             <AvatarImage src={imageUrl} alt="shadcn" />
             <AvatarFallback>{initials || "CN"}</AvatarFallback>
           </Avatar>
