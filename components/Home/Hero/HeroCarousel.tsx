@@ -63,7 +63,7 @@ export default function HeroCarousel() {
         setApi={setApi}
         plugins={[
           Autoplay({
-            delay: 3000,
+            delay: 5000,
             stopOnInteraction: false,
           }),
         ]}
@@ -73,22 +73,24 @@ export default function HeroCarousel() {
         }}
         className="w-full"
       >
-        <CarouselContent>
-          {Banner.map((item, index) => {
-            return (
-              <CarouselItem key={index}>
-                <div className="overflow-hidden rounded-xl max-h-[400px]">
-                  <Image
-                    loading="eager"
-                    src={item.image}
-                    alt={item.title}
-                    className="object-cover object-center w-full"
-                  />
-                </div>
-              </CarouselItem>
-            );
-          })}
-        </CarouselContent>
+        <div className="w-full overflow-hidden rounded-xl">
+          <CarouselContent>
+            {Banner.map((item, index) => {
+              return (
+                <CarouselItem key={index} className="pl-0">
+                  <div className="max-h-100">
+                    <Image
+                      loading="eager"
+                      src={item.image}
+                      alt={item.title}
+                      className="object-cover object-center w-full"
+                    />
+                  </div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+        </div>
 
         <CarouselPrevious />
         <CarouselNext />

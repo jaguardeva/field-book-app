@@ -11,7 +11,7 @@ export default async function Navbar() {
   const session = await auth();
 
   return (
-    <div className="flex items-center w-full border-b">
+    <div className="flex items-center w-full shadow-md sticky top-0 z-50 bg-white">
       <div className="w-full max-w-[1240px] justify-between px-4 md:px-0 mx-auto h-[70px] flex items-center">
         <div>
           <Link href={"/"} className="text-2xl font-bold">

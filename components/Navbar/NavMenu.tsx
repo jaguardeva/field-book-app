@@ -16,9 +16,12 @@ export default function NavMenu() {
           <Link
             href={item.href}
             key={index}
-            className={`p-4 py-2 text-sm font-medium text-gray-500 rounded-full  transition-all ease-in-out ${isActive ? "bg-orange-100 text-orange-600" : "hover:text-gray-900"}`}
+            className={`relative p-4 py-2 text-sm font-medium text-gray-500 rounded-full  transition-all ease-in-out ${isActive ? "text-orange-600" : "hover:text-gray-900"}`}
           >
             {item.label}
+            {isActive && (
+              <div className="absolute bottom-0 w-1 h-1 translate-x-1/2 bg-orange-600 rounded-full right-1/2"></div>
+            )}
           </Link>
         );
       })}

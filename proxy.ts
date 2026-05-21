@@ -4,9 +4,20 @@ import { auth } from "./auth";
 export const proxy = auth((req) => {
   const isLoggedIn = !!req.auth;
 
+  const userRole = req.auth?.user?.role;
+
   const guestRoutes = ["/login", "/register"];
 
-  const protectedRoutes = ["/dashboard"];
+  const protectedRoutes = [
+    {
+      href: "/dashboard",
+      onlyAdmin: true,
+    },
+    {
+      href: "/profile",
+      onlyAdmin: false,
+    },
+  ];
 
   const pathname = req.nextUrl.pathname;
 
@@ -15,13 +26,19 @@ export const proxy = auth((req) => {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  // protect dashboard
-  const isProtected = protectedRoutes.some((route) =>
-    pathname.startsWith(route),
+  // cari route yang cocok
+  const matchedRoute = protectedRoutes.find((route) =>
+    pathname.startsWith(route.href),
   );
 
-  if (!isLoggedIn && isProtected) {
+  // jika route protected dan belum login
+  if (matchedRoute && !isLoggedIn) {
     return NextResponse.redirect(new URL("/login", req.url));
+  }
+
+  // jika route admin only tapi bukan admin
+  if (matchedRoute?.onlyAdmin && userRole !== "admin") {
+    return NextResponse.redirect(new URL("/", req.url));
   }
 
   return NextResponse.next();

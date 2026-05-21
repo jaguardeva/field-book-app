@@ -21,7 +21,7 @@ const Categories: {
 
 export default function FilterSection() {
   return (
-    <div className="w-full mt-6">
+    <div className="w-full bg-gray-50 py-6 pb-0">
       <div className="w-full max-w-[1240px] mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -35,8 +35,14 @@ export default function FilterSection() {
           </div>
           <form action="" className="w-full max-w-md">
             <div className="relative">
-              <Input type="text" placeholder="Cari" className="pr-7" />
-              <SearchIcon className="size-4 absolute right-3 top-1/2 -translate-y-1/2" />
+              <Input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Cari"
+                className="pl-9 bg-white"
+              />
+              <SearchIcon className="size-4 absolute left-3 top-1/2 -translate-y-1/2" />
             </div>
           </form>
         </div>

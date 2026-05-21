@@ -4,7 +4,7 @@ import HeroSection from "@/components/Home/Hero/HeroSection";
 
 export default function Home() {
   return (
-    <main className="w-full py-6">
+    <main className="w-full">
       <HeroSection />
       <FilterSection />
       <CardSection />
