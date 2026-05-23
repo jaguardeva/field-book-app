@@ -58,7 +58,7 @@ export default function HeroCarousel() {
   }, [api]);
 
   return (
-    <div className="relative">
+    <div className="relative group">
       <Carousel
         setApi={setApi}
         plugins={[
@@ -92,8 +92,14 @@ export default function HeroCarousel() {
           </CarouselContent>
         </div>
 
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious
+          size={"icon-lg"}
+          className="absolute transition-all duration-300 ease-in-out opacity-0 left-12 group-hover:opacity-100 group-hover:left-8"
+        />
+        <CarouselNext
+          size={"icon-lg"}
+          className="absolute transition-all duration-300 ease-in-out opacity-0 right-12 group-hover:opacity-100 group-hover:right-8"
+        />
       </Carousel>
 
       {/* Indicator */}

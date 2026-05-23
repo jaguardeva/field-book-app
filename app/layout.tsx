@@ -37,8 +37,9 @@ export default function RootLayout({
         "font-sans",
         inter.variable,
       )}
+      suppressHydrationWarning
     >
-      <body>
+      <body suppressHydrationWarning>
         <NextTopLoader color="orange" />
         {children}
       </body>

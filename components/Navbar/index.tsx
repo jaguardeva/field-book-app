@@ -12,10 +12,10 @@ export default async function Navbar() {
 
   return (
     <div className="flex items-center w-full shadow-md sticky top-0 z-50 bg-white">
-      <div className="w-full max-w-[1240px] justify-between px-4 md:px-0 mx-auto h-[70px] flex items-center">
+      <div className="w-full max-w-[1240px] justify-between px-4 md:px-0 mx-auto h-[60px] flex items-center">
         <div>
           <Link href={"/"} className="text-2xl font-bold">
-            <div className="flex items-center overflow-hidden max-h-[70px]">
+            <div className="flex items-center overflow-hidden">
               <Image
                 width={100}
                 src={Logo}
